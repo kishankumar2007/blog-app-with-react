@@ -16,15 +16,15 @@ class AuthService {
       const userData = await this.account.create(ID.unique(), email, password, name)
       return userData
     } catch (error) {
-      console.log(error.message)
+      throw error
     }
   }
 
   async getCurrentUser() {
     try {
-      return this.account.get()
+       return this.account.get()
     } catch (error) {
-      console.log(error.message)
+      throw error
     }
   }
 
@@ -33,7 +33,7 @@ class AuthService {
       const userData = await this.account.createEmailPasswordSession(email, password)
       return userData
     } catch (error) {
-      console.log(error.message)
+      throw error
     }
   }
   async logout() {
@@ -41,7 +41,7 @@ class AuthService {
       await this.account.deleteSessions()
       return "User Logout Sucess"
     } catch (error) {
-      console.log(error.message)
+      throw error
     }
   }
 }

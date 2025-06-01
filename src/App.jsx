@@ -18,7 +18,7 @@ function App() {
           navigate('/')
         }
       } catch (error) {
-        console.log(error.message)
+       console.log(error.message)
       }
     })()
   }, [])

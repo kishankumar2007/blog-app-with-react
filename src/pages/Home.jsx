@@ -4,6 +4,7 @@ import appWriteService from '../appwrite/services';
 import PostCard from '../components/PostCard';
 import { useEffect, useState } from 'react';
 import Logo from '../assets/Login-PNG-Photo.png'
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -21,7 +22,7 @@ function Home() {
             .finally(() => setLoading(false))
     }, [authStates, dispatch])
 
-    if (!authStates) return <div className='max-w-2xl flex flex-col mx-auto gap-5 items-center sm:pt-10 pt-2'><img src={Logo} width={300} /><p className='text-white text-center text-sm sm:text-xl'>Login or signup to create and read post</p> </div>
+    if (!authStates) return <div className='max-w-2xl flex flex-col mx-auto gap-5 items-center sm:pt-10 pt-2'><img src={Logo} width={300} /><p className='text-white text-center text-sm sm:text-xl'><Link className='border border-white/15 p-1 rounded' to='/login'>login </Link> or <Link className='border border-white/15 p-1 rounded' to='/signup'>signup</Link> to create and read post</p> </div>
     if(posts.length === 0) return <p className='text-white justify-center min-h-screen sm:text-2xl flex items-center text-xl'>Ohh no!😔, No Post Found</p>
     return (
         loading ? <p className='text-white text-center text-xl mt-40'>Hold on blog's are loading...</p> : <main className="container mx-auto px-4 py-8">

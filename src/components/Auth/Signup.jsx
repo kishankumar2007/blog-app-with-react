@@ -10,21 +10,22 @@ import { login } from '../../store/authSlice'
 function Signup() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm()
   const [loading, setLoading] = useState(false)
+  const [error,setError] =useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const createUserAccount = async (data) => {
     try {
       setLoading(true)
+      setError('')
       const userData = await authService.createAccount(data)
-      console.log(userData)
       if (userData) {
        alert("Account Created Successfully")
          dispatch(login(userData))
         navigate('/')
         reset()
       }
-    } catch (error) {
-      alert("Something went wrong!! try again")
+    } catch (err) {
+      setError(err.message)
     } finally {
       setLoading(false)
     }
@@ -48,6 +49,8 @@ function Signup() {
             minLength: { value: 8, message: "Password must be minimum length of 8 " }
           })} />
           {errors?.password && <p className='text-red-600 text-sm mb-1'>{errors.password?.message}</p>}
+          {error && <p className='text-red-600 text-sm mb-1'>{error}</p>}
+
           <button className='py-2  mt-5 px-10 rounded bg-violet-700 text-white' type='submit'>{loading ? "Please wait..." : "Create Account"}</button>
           <h1 className='text-white/50 mt-5'>Already have an Account ? <Link to='/login' className='text-white'>Login</Link></h1>
         </form>

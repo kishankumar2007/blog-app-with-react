@@ -3,12 +3,12 @@ import storageService from '../appwrite/storage';
 import { useNavigate} from 'react-router-dom';
 
 const PostCard = ({ post }) => {
-  const [image, setImage] = useState()
+  const [image, setImage] = useState(null)
   const navigate = useNavigate()
   useEffect(() => {
     const getFilePreview = async () => {
       try {
-        setImage('')
+        setImage(null)
         const file = await storageService.filePreview(post.Image);
         setImage(file);
       } catch (error) {

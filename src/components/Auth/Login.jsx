@@ -10,14 +10,16 @@ function Login() {
   const dispatch = useDispatch()
   const { register, handleSubmit, formState: { errors },reset } = useForm()
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const loginUser = async (data) => {
     try {
       setLoading(true)
+      setError('')
       const userData = await authService.userLogin(data)
       if (userData) dispatch(login(userData))
         reset()
-    } catch (error) {
-      console.log(error.message)
+    } catch (err) {
+      setError(err.message)
     } finally { setLoading(false) }
 
   }
@@ -37,6 +39,7 @@ function Login() {
             minLength: { value: 8, message: "invalid email or password" }
           })} />
           {errors?.password && <p className='text-red-600 text-sm mb-1'>{errors.password?.message}</p>}
+          {error && <p className='text-red-600 text-sm mb-1'>{error}</p>}
           <button className='py-2  mt-5 px-10 rounded bg-violet-700 text-white' type='submit'>{loading ? "Please wait..." : "Login"}</button>
           <h1 className='text-white/50 mt-5'>Don't have an Account ? <Link to='/signup' className='text-white'>Signup</Link></h1>
         </form>

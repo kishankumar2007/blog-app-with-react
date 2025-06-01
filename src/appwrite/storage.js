@@ -16,7 +16,7 @@ export class storage {
     const dbFile = await this.storage.createFile(config.storageId,id,image);
     return dbFile
     } catch (error) {
-      console.log(error.message);
+      throw error
     }
   }
 
@@ -24,7 +24,7 @@ export class storage {
       try {
         return await this.storage.getFile(config.storageId,fileid)
       } catch (error) {
-        console.log(error.message)
+        throw error
       }
   }
 
@@ -32,7 +32,7 @@ export class storage {
     try {
       return this.storage.getFileView(config.storageId, fileId)
     } catch (error) {
-      console.log(error.message)
+      throw error
     }
   }
 
@@ -50,7 +50,7 @@ export class storage {
       await this.storage.deleteFile(config.storageId,fileId)
       return "File Deleted Successfully"
     } catch (error) {
-      console.log(error.message)
+      throw error
     }
   }
 }
