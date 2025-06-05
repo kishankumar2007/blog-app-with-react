@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import store from './store/store.js'
-import { Provider, useSelector } from 'react-redux'
+import { Provider } from 'react-redux'
 import Home from './pages/Home.jsx';
 import AuthLayout from './components/Layout/AuthLayout.jsx';
 import LoginPage from './pages/LoginPage.jsx';
@@ -18,7 +18,7 @@ const router = createBrowserRouter(
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<AuthLayout authantication="false"><LoginPage /></AuthLayout>} />
       <Route path='/signup' element={<SignupPage />} />
-      <Route path='/addpost' element={<AddPost/>} />
+      <Route path='/addpost' element={<AddPost />} />
       <Route path='/post/:slug' element={<Post />} />
     </Route>
 
