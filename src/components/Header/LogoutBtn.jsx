@@ -3,6 +3,7 @@ import authService from '../../appwrite/auth'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/authSlice'
+import { toast } from 'react-toastify'
 function LogoutBtn() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -11,6 +12,20 @@ function LogoutBtn() {
     try {
       await authService.logout()
       dispatch(logout())
+      toast.success('Logout success', {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        style: {
+          width: "200px",
+          height: " 40px"
+        }
+      });
       navigate('/')
     } catch (error) {
       console.log(error.message)

@@ -48,7 +48,7 @@ export class storage {
   async deleteFile(fileId){
     try {
       await this.storage.deleteFile(config.storageId,fileId)
-      return "File Deleted Successfully"
+      return true
     } catch (error) {
       throw error
     }

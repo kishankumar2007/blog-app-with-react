@@ -1,27 +1,39 @@
 import React, { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
 import { Input } from '../../../index'
 import authService from '../../appwrite/auth'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../store/authSlice'
-
+import { toast } from 'react-toastify'
 function Signup() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm()
   const [loading, setLoading] = useState(false)
-  const [error,setError] =useState('')
+  const [error, setError] = useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const authUser = useSelector(state => state.auth.userData)
   const createUserAccount = async (data) => {
     try {
       setLoading(true)
       setError('')
       const userData = await authService.createAccount(data)
       if (userData) {
-       alert("Account Created Successfully")
-         dispatch(login(userData))
-        navigate('/')
+        navigate('/login')
+        toast.success('Account created successfully ✅', {
+          position: "top-left",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          style: {
+            width: "200px",
+            height: " 40px"
+          }
+        });
         reset()
       }
     } catch (err) {

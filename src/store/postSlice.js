@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    userPosts: [],
     allPosts: [],
 
 }
@@ -10,17 +9,12 @@ const postSlice = createSlice(
         name: "postSlice",
         initialState,
         reducers: {
-            addPost: (state, action) => {
-                state.userPosts = action.payload
-                state.allPosts = action.payload.addPost
-            },
-
             deletePost: (state, action) => {
-                state.userPosts = action.payload
-                state.allPosts = action.payload.deletePost
+                state.allPosts = state.allPosts.filter(post => post.$id !== action.payload)
+             
             },
             setallPosts: (state, action) => {
-                state.allPosts = [...action.payload]
+                state.allPosts = [...action.payload].reverse()
             }
 
         }
