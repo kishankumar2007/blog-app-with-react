@@ -18,7 +18,7 @@ function Post() {
 
   useEffect(() => {
     if (post == null) {
-      setTimeout(() =>{ navigate('/')},300)
+      setTimeout(() =>{ navigate('/')},500)
       return
     }
 
