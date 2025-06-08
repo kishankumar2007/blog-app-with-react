@@ -1,6 +1,4 @@
-
-
-##📰 Apna Blog App
+## 📰 Apna Blog App
 
 A clean and modern blog application built with **React + Vite** and powered by **Appwrite (BaaS)**. Users can register, log in, create, edit, and delete blog posts with ease. The app is responsive and optimized for both desktop and mobile devices.
 
