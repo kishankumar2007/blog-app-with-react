@@ -81,16 +81,13 @@ VITE_APPWRITE_BUCKET_ID=your_bucket_id
 
 ⚠️ Note: Vite requires all env variables to start with VITE_.
 ⚠️ Do NOT commit your .env file to version control.
+```
+---
 
-⸻
-
-👤 Author
-	•	Name: Kishan
-	•	GitHub: @kishankumar20007
-	•	LinkedIn: linkedin.com/in/kishankr2007
-
-⸻
-
-📄 License
-
-This project is open source and available under the MIT License.
+## 👤 Author
+- **Name**: Kishan
+- **GitHub**: ```@kishankumar20007```
+- **LinkedIn**: ```linkedin.com/in/kishankr2007```
+---
+## 📄 License
+<h4> This project is open source and available under the MIT License. </h4>
