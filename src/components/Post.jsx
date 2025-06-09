@@ -13,6 +13,7 @@ function Post() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const posts = useSelector(state => state.post.allPosts)
+  const userPost = useSelector(state => state.post.userPosts)
   const userData = useSelector(state => state.auth.userData)
   const post = posts.find((post) => post.slug === slug)
 
@@ -62,21 +63,7 @@ function Post() {
   }
 
   const editPost = async () => {
-    toast.info('under development', {
-      position: "top-left",
-      autoClose: 2000,
-      width: 100,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      style: {
-        width: "200px",
-        height: " 40px"
-      }
-    })
+    navigate(`/post/${slug}/${post.$id}/edit`)
   }
 
   return (

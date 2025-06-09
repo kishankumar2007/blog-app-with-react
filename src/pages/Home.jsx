@@ -15,7 +15,7 @@ function Home() {
 
     useEffect(() => {
         setLoading(true)
-        appWriteService.getAllPost()
+        appWriteService.getAllPost("is_Active","Active","NotActive")
             .then(allPosts => {
                 dispatch(setallPosts(allPosts.documents))
             }).catch((e) => console.log(e.message))
@@ -28,7 +28,7 @@ function Home() {
             <main className="container mx-auto px-4 py-5">
                 <h1 className="text-xl font-bold mb-6 text-gray-100 ml-10">Explore the latest blog's</h1>
                 <div className="sm:grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 flex flex-wrap gap-4 lg:px-2 w-full max-w-7xl mx-auto pt-5 pb-5 min-h-screen items-start">
-                    {authStates && posts.map((post) => <PostCard key={post.$id} post={post} />)}
+                    {authStates && posts.map((post) => post.is_Active === "Active" && <PostCard key={post.$id} post={post} status={post.is_Active} />)}
                 </div>
             </main>)
     )

@@ -21,13 +21,13 @@ const Navbar = () => {
       active: true
     },
     {
-      name: "All Post",
-      path: '/',
+      name: "Add Post",
+      path: '/addpost',
       active: authStatus,
     },
     {
-      name: "Add Post",
-      path: '/addpost',
+      name: "My Post",
+      path: '/mypost',
       active: authStatus,
     },
     {

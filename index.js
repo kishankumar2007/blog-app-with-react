@@ -8,6 +8,7 @@ import Signup from "./src/components/Auth/Signup";
 import Login from "./src/components/Auth/Login";
 import LogoutBtn from "./src/components/Header/LogoutBtn";
 import AuthLayout from './src/components/Layout/AuthLayout'
+import UpdatePost from "./src/components/UpdatePost";
+import MyPost from "./src/components/MyPost";
 
-
-export {PostCard,Input,Navbar,RTE,CreatePost,Footer,Signup,Login,LogoutBtn,AuthLayout}
+export {PostCard,Input,Navbar,RTE,CreatePost,Footer,Signup,Login,LogoutBtn,AuthLayout,UpdatePost,MyPost}

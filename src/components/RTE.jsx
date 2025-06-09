@@ -2,15 +2,16 @@ import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { Editor } from '@tinymce/tinymce-react'
 
-function RTE({ control }) {
+function RTE({ control,content='your content here...' }) {
     return (
         <div className='max-w-4xl'>
             <Controller
                 name='content'
                 control={control}
-                defaultValue=''
+                defaultValue= {content}
                 render={({ field: { onChange } }) => (
                     <Editor
+                    initialValue={content}
                         apiKey='35i92ne7ovktt2tcqdvmcepzqk8h7om5h3duyws0kpili4dl'
                         init={{
                             height: 500,

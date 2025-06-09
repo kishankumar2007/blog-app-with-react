@@ -23,7 +23,7 @@ function App() {
 
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       try {
         const session = await authService.getCurrentUser()
         if (session) {
