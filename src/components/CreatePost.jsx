@@ -25,6 +25,7 @@ function CreatePost({ post = "" }) {
         defaultValues: {
             is_Active: post?.is_Active || "Active",
             Title: post?.title || '',
+            Slug: post?.slug || post?.title,
             Auther: post.auther || '',
         }
     })
@@ -151,7 +152,7 @@ function CreatePost({ post = "" }) {
                         <Input
                             className='max-w-4xl py-2 w-full'
                             label='Slug'
-                            value={post?.title || slug || ''}
+                            value={slug || post?.slug || ''}
                             placeholder='Your slug here..'
                             readOnly
                             {...register('Slug', { required: true })}
