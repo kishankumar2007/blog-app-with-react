@@ -5,7 +5,8 @@ import PostCard from '../components/PostCard';
 import { useEffect, useState } from 'react';
 import Logo from '../assets/Login-PNG-Photo.png'
 import { Link } from 'react-router-dom';
-
+import authService from '../appwrite/auth';
+import { login } from '../store/authSlice';
 function Home() {
 
     const posts = useSelector(state => state.post.allPosts)
@@ -13,14 +14,26 @@ function Home() {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        setLoading(true)
-        appWriteService.getAllPost("is_Active","Active","NotActive")
-            .then(allPosts => {
-                dispatch(setallPosts(allPosts.documents))
-            }).catch((e) => console.log(e.message))
-            .finally(() => setLoading(false))
-    }, [authStates, dispatch, setLoading])
+useEffect(() => {
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const userData = await authService.getCurrentUser();
+      if (userData) {
+        dispatch(login(userData));
+      }
+
+      const allPosts = await appWriteService.getAllPost("is_Active", "Active", "NotActive");
+      dispatch(setallPosts(allPosts.documents));
+    } catch (err) {
+      console.log("Error fetching data:", err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchData();
+}, [authStates, dispatch]);
 
     if (!authStates) return <div className='max-w-2xl flex flex-col mx-auto gap-5 items-center sm:pt-10 pt-2'><img src={Logo} width={300} /><p className='text-white text-center text-sm sm:text-xl'><Link className='border border-white/15 p-1 rounded' to='/login'>login </Link> or <Link className='border border-white/15 p-1 rounded' to='/signup'>signup</Link> to create and read post</p> </div>
     return (
