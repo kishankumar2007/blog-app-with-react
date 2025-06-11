@@ -4,12 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import store from './store/store.js'
 import { Provider } from 'react-redux'
-import { Home, AuthLayout, SignupPage, AddPost, MyPost, Post, UpdatePost ,LoginPage} from './pages/page.js';
+import { Home,ExplorePage, AuthLayout, SignupPage, AddPost, MyPost, Post, UpdatePost ,LoginPage} from './pages/page.js';
+import LandingPage from './pages/LandingPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />} >
       <Route path='/' element={<Home />} />
+      <Route path='/blogs' element={<ExplorePage />} />
       <Route path='/login' element={<AuthLayout authantication="false"><LoginPage /></AuthLayout>} />
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/addpost' element={<AddPost />} />

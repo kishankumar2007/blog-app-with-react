@@ -6,6 +6,7 @@ import AddPost from '../pages/AddPost.jsx';
 import Post from '../pages/PostPage.jsx'
 import UpdatePost from '../pages/UpdatePostPage.jsx'
 import MyPost from './MyPostPage.jsx';
+import ExplorePage from './ExplorePage.jsx';
 
 
-export {Home,AddPost,AuthLayout,LoginPage,SignupPage,Post,UpdatePost,MyPost}
+export {ExplorePage,Home,AddPost,AuthLayout,LoginPage,SignupPage,Post,UpdatePost,MyPost}

@@ -67,7 +67,35 @@ export class services {
       throw error.message;
     }
   }
+
+  async LikePost(userId,postId){
+    try {
+      return await this.databases.createDocument(config.databaseId,config.likesCollectionId,ID.unique(),{userId,postId})
+    } catch (error) {
+       throw error.message
+    }
+  }
+  async getPostLikes(postId){
+    try {
+      return await this.databases.listDocuments(
+        config.databaseId,
+        config.likesCollectionId,
+        [Query.equal("postId", [postId])],
+      )
+    } catch (error) {
+       throw error.message
+    }
+  }
+
+  async disLikePost(postId){
+      try {
+        await this.databases.deleteDocument(config.databaseId,config.likesCollectionId,postId)
+      } catch (error) {
+          throw error.message
+      }
+  }
 }
+
 
 const appWriteService = new services();
 

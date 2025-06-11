@@ -185,7 +185,7 @@ function CreatePost({ post = "" }) {
                             Status
                         </label>
                         <select
-                            className='bg-white/50 m-2 text-black'
+                            className='m-2 bg-white/70 rounded '
                             name='Status'
                             id='Status'
                             {...register('is_Active', { required: true })}
@@ -194,7 +194,7 @@ function CreatePost({ post = "" }) {
                             <option value='NotActive'>NotActive</option>
                         </select>
 
-                        <button className='bg-violet-600 h-[40px] w-full rounded text-white' type='submit'>
+                        <button className='bg-teal-600 h-[40px] w-full rounded text-white' type='submit'>
                             {loading ? "Please wait..." : (post ? "Update Post" : "Create Post")}
                         </button>
                     </div>

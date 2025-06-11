@@ -2,7 +2,7 @@ import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { Editor } from '@tinymce/tinymce-react'
 
-function RTE({ control,content='your content here...' }) {
+function RTE({ control,content='' }) {
     return (
         <div className='max-w-4xl'>
             <Controller

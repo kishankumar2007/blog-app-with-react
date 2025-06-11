@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/authSlice'
 import { toast } from 'react-toastify'
-function LogoutBtn() {
+function LogoutBtn({className=''}) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -33,7 +33,7 @@ function LogoutBtn() {
   }
 
   return (
-    <button onClick={logoutUser} className='border-none bg-violet-500 text-white rounded-lg py-1 px-2'>Logout</button>
+    <button onClick={logoutUser} className={`border-none ${className} bg-teal-600 text-white rounded-lg py-1 px-2`}>Logout</button>
 
   )
 }

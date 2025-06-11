@@ -3,7 +3,8 @@ const config = {
      projectId: (import.meta.env.VITE_PROJECT_ID),
       storageId: (import.meta.env.VITE_STORAGE_ID),
      databaseId: (import.meta.env.VITE_DATABASE_ID),
-     collectionId: (import.meta.env.VITE_COllECTION_ID)
+     collectionId: (import.meta.env.VITE_COllECTION_ID),
+     likesCollectionId:(import.meta.env.VITE_LIKES_COllECTION_ID),
 }
 
 export default config
