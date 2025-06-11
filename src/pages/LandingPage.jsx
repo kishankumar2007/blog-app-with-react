@@ -9,7 +9,7 @@ import HeroImage from '../assets/HeroImage2.png'
 const LandingPage = ({ posts,authStates }) => {
   const navigate = useNavigate()
   const FeatureCard = ({ icon, title, desc }) => (
-    <div className="bg-[#1E1E2F] py-6 rounded-md hover:scale-105 transition-all duration-300 ease-in-out hover:bg-[#1E1E1E]  space-y-2 flex flex-col items-center">
+    <div className="bg-[#1E1E2F]/80 py-6 rounded-md hover:scale-105 transition-all duration-300 ease-in-out hover:bg-[#1E1E2F]  space-y-2 flex flex-col items-center">
       <div className="text-3xl text-teal-500">{icon}</div>
       <h3 className="font-bold text-lg">{title}</h3>
       <p className="text-sm text-gray-400">{desc}</p>
@@ -17,7 +17,7 @@ const LandingPage = ({ posts,authStates }) => {
   );
 
   const StepCard = ({ step, title, desc }) => (
-    <div className="bg-[#1E1E2F] py-6 rounded-md hover:scale-105 transition-all duration-300 ease-in-out hover:bg-[#1E1E1E] space-y-2 flex flex-col items-center">
+    <div className="bg-[#1E1E2F]/80 py-6 rounded-md hover:scale-105 transition-all duration-300 ease-in-out hover:bg-[#1E1E2F] space-y-2 flex flex-col items-center">
       <div className="text-3xl font-bold text-teal-500">{step}</div>
       <h3 className="font-bold text-lg">{title}</h3>
       <p className="text-sm text-gray-400">{desc}</p>
@@ -53,8 +53,8 @@ const LandingPage = ({ posts,authStates }) => {
 
       <section>
         <h2 className="text-2xl font-bold mb-6">Featured Blogs</h2>
-        <div className="flex flex-wrap gap-6 justify-start w-full">
-          {posts.map((post, index) => index < 4 ? <PostCard key={post.$id} className="hover:scale-105 transition-all duration-300 ease-in-out hover:bg-[#1E1E1E] " status={post.is_Active} post={post} /> : '')}
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-6 sm:grid-cols-2 justify-center w-full">
+          {posts.map((post, index) => index < 4 ? <PostCard key={post.$id} className="hover:scale-105 transition-all duration-300 ease-in-out" status={post.is_Active} post={post} /> : '')}
         </div>
       </section>
 
@@ -67,7 +67,7 @@ const LandingPage = ({ posts,authStates }) => {
         </div>
       </section>
 
-      <footer className="border-t border-gray-700 pt-6 flex flex-wrap justify-between text-sm text-gray-400">
+      <footer className="border-t border-gray-700 pt-6 flex flex-wrap mb-2 justify-between text-sm text-gray-400">
         <div className="space-x-4 ">
           {["About", "Contact", "Privacy", "Policy"].map((item,idx) => <Link key={idx} to='/' className="hover:text-teal-500">{item}</Link>)}
         </div>

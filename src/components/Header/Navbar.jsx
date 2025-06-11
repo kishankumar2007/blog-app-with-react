@@ -23,16 +23,6 @@ const Navbar = () => {
       active: authStatus,
     },
     {
-      name: "Add Post",
-      path: '/addpost',
-      active: authStatus,
-    },
-    {
-      name: "My Post",
-      path: '/mypost',
-      active: authStatus,
-    },
-    {
       name: "Login",
       path: '/login',
       active: !authStatus,
@@ -53,7 +43,7 @@ const Navbar = () => {
       </button>
 
       <div
-        className={`fixed top-0 left-0 h-full w-56 bg-gray-900 text-white transform transition-transform duration-300 z-40 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 left-0 h-full w-64 bg-gray-900 text-white transform transition-transform duration-300 z-40 ${isOpen ? 'translate-x-0' : '-translate-x-full'
           } md:hidden`}
       >
         {authStatus && <div className="py-6 px-3 flex flex-col gap-2 text-xl font-semibold border-b border-gray-700">
@@ -64,6 +54,15 @@ const Navbar = () => {
           {navItems.map((item) => (
             item.active && <li className='text-white p-2 rounded list-none hover:text-teal-500 transition-all delay-100' key={item.name}><Link to={item.path}>{item.name}</Link></li>
           ))}
+          {authStatus &&
+            <>
+              <li className=' list-none text-white p-2 rounded hover:text-teal-500 transition-all delay-100'>
+                <Link to="/mypost">My Post</Link>
+              </li>
+              <li className=' list-none text-white p-2 rounded hover:text-teal-500 transition-all delay-100'>
+                <Link to="/addpost">Add Post</Link>
+              </li>
+            </>}
         </nav>
         {authStatus && <LogoutBtn className='w-52 py-2 m-2' />}
       </div>
@@ -86,8 +85,13 @@ const Navbar = () => {
               {userData.name}
             </h1>
             <div className='absolute rounded-xl transition-opacity ease-in-out duration-300 group-hover:opacity-100 hidden group-hover:block opacity-0 w-30 h-fit'>
-              <ul className='mt-2  bg-slate-800 text-white flex flex-col items-center space-x-1.5 py-2'>
-                {/* <li className='hover:text-teal-400 transition-color delay-100 '>Profile</li> */}
+              <ul className='mt-2  bg-slate-800 text-white flex flex-col items-center space-y-2 py-2'>
+                <li>
+                  <Link to="/mypost" className="hover:text-teal-400 transition-color delay-100">My Post</Link>
+                </li>
+                <li>
+                  <Link to="/addpost" className="hover:text-teal-400 transition-color delay-100">Add Post</Link>
+                </li>
                 <li><LogoutBtn className='bg-transparent cursor-pointer hover:text-teal-400 transition-color delay-100' /></li>
               </ul>
             </div>
