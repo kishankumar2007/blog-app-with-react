@@ -17,7 +17,7 @@ export class services {
         config.databaseId,
         config.collectionId,
         ID.unique(),
-        { title, content, Image, auther, userId, slug, is_Active }
+        { title, content, Image, auther, userId, slug, is_Active,"Views":0}
       );
     } catch (error) {
       throw error.message;

@@ -13,7 +13,7 @@ const postSlice = createSlice({
       );
     },
     setallPosts: (state, action) => {
-      state.allPosts = [...action.payload].reverse();
+      state.allPosts = [...action.payload]
     }
   },
 });

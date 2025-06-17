@@ -14,7 +14,7 @@ function MyPost() {
                     Ohh no! 😔 No Post Found
                 </p>
             ) : (
-                <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-4">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-6 sm:grid-cols-2 sm:px-6 justify-center w-full">
                     {userPost.map((post) => (
                         <PostCard key={post.$id} post={post} status={post.is_Active} />
                     ))}

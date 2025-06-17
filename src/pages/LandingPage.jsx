@@ -54,7 +54,7 @@ const LandingPage = ({ posts,authStates }) => {
       <section>
         <h2 className="text-2xl font-bold mb-6">Featured Blogs</h2>
         <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-6 sm:grid-cols-2 justify-center w-full">
-          {posts.map((post, index) => index < 4 ? <PostCard key={post.$id} className="hover:scale-105 transition-all duration-300 ease-in-out" status={post.is_Active} post={post} /> : '')}
+          {posts.map((post, index) => post.is_Active === "Active" ? index < 4 && <PostCard key={post.$id} className="hover:scale-105 transition-all duration-300 ease-in-out" status={post.is_Active} post={post} /> : '')}
         </div>
       </section>
 

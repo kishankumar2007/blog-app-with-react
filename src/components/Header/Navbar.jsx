@@ -57,6 +57,9 @@ const Navbar = () => {
           {authStatus &&
             <>
               <li className=' list-none text-white p-2 rounded hover:text-teal-500 transition-all delay-100'>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li className=' list-none text-white p-2 rounded hover:text-teal-500 transition-all delay-100'>
                 <Link to="/mypost">My Post</Link>
               </li>
               <li className=' list-none text-white p-2 rounded hover:text-teal-500 transition-all delay-100'>
@@ -64,7 +67,7 @@ const Navbar = () => {
               </li>
             </>}
         </nav>
-        {authStatus && <LogoutBtn className='w-52 py-2 m-2' />}
+        {authStatus && <LogoutBtn className='bg-transparent px-5' />}
       </div>
       {isOpen && (
         <div
@@ -86,6 +89,9 @@ const Navbar = () => {
             </h1>
             <div className='absolute rounded-xl transition-opacity ease-in-out duration-300 group-hover:opacity-100 hidden group-hover:block opacity-0 w-30 h-fit'>
               <ul className='mt-2  bg-slate-800 text-white flex flex-col items-center space-y-2 py-2'>
+                <li>
+                  <Link to="/profile" className="hover:text-teal-400 transition-color delay-100">Profile</Link>
+                </li>
                 <li>
                   <Link to="/mypost" className="hover:text-teal-400 transition-color delay-100">My Post</Link>
                 </li>
