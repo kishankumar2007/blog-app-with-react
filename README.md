@@ -86,7 +86,7 @@ VITE_APPWRITE_BUCKET_ID=your_bucket_id
 
 ## 👤 Author
 - **Name**: Kishan
-- **GitHub**: ```@kishankumar20007```
+- **GitHub**: ```@kishankumar2007```
 - **LinkedIn**: ```linkedin.com/in/kishankr2007```
 ---
 ## 📄 License
